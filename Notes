@@ -1,6 +1,59 @@
-1. If cocoapods is already installed, skip, otherwise (sudo gem install cocoapods)
-2. Also do (sudo arch -x86_64 gem install ffi) either in same directory or the ios directory in step 6
-3. Do "npx react-native init YourProjectName" (cannot contain dashes)
-4. If cocapods dependencies fail, cd into ios folder, and run (arch -x86_64 pod install)
-5. Make sure the pwd is the root project then type (npx react-native start) -> this enables the watchman 
-6. In another terminal, type (npx react=native run-ios)
+INITIALISING WITH REACT-NATIVE CLIENT
+    1. If cocoapods is already installed, skip, otherwise (sudo gem install cocoapods)
+    2. Also do (sudo arch -x86_64 gem install ffi) either in same directory or the ios directory in step 6
+    3. Do "npx react-native init YourProjectName" (cannot contain dashes)
+    4. If cocapods dependencies fail, cd into ios folder, and run (arch -x86_64 pod install)
+    5. Make sure the pwd is the root project then type (npx react-native start) -> this enables the watchman 
+    6. In another terminal, type (npx react=native run-ios)
+
+INITIALISING WITH EXPO (MUCH EASIER)
+    1. If expo-cli not installed then do "sudo npm install -g expo-cli"
+    2. Run "expo init projectName"
+    3, cd into that, and run "npm start" to run the project
+
+
+-------
+
+TAGS
+    <View></View> -> Fundamental -> Allows flex etc.. Essentially a div
+    <Text></Text> -> Essentially a <p></p>
+    <TextInput></TextInput> -> Like input   
+        - "defaultValue =" attribute sets the label of the textbox
+
+
+PROPS
+    - You can use 'props' or any other word to refer to as properties, and then access that property from the original function to do something. It is essentially literally just an argument in an anonymous function which assumes a particular property. Eg: 
+        const smth = (prop) => {
+            return <Text>{prop.name}</Text>
+        }
+    - This then looks at an attribute called 'name' in the parent component
+    - Props essentially means attribute
+
+
+-------
+
+Anonymous functions to create react element:
+    - function() {..}
+    OR preferred:
+    - () => {..}
+
+To create a function to return a react element:
+    const something = () => {
+        return <Text>Hi</Text>;
+    }
+    // To export in
+    export default something;
+
+
+GENERAL
+
+You can also do variables:
+    const something = () => {
+        const name = "Ryan";
+        return (<Text>Hello, I am {name}!</Text>)
+    }
+
+Reason for double braces:
+    If its a double brace, then the inner brace is for javascript elements / objects like style's width and height. Otherwise it could be taken in like a prop
+
+

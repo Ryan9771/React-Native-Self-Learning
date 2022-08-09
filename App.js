@@ -1,19 +1,58 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Text, TextInput, View } from 'react-native';
 
-export default function() {
+// A function declared anonymously
+const getFirstName = (firstName) => {
+  return firstName + " ";
+}
+
+// A function declared properly
+function getLastName(lastName) {
+  return lastName;
+}
+
+// The 'Hello' component
+const Hello = () => {
+  const name = 'Ryan';
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app! Good Morningsdfad</Text>
+    <View>
+      <Text>
+        Hello, I am {getFirstName("Ryan") + getLastName("Ryan")}
+      </Text>
+      <TextInput
+        style={{
+          borderColor: 'gray',
+          borderWidth: 1,
+          height: 40
+        }}
+        defaultValue="Im a text box"
+      />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+// We can export the Hello component and it'll display once
+// export default Hello;
+
+// But we can render a component multiple times as so: (make sure the first one is wrapped in a view!)
+
+const HelloThere = (props) => {
+  return (
+    <View>
+      <Text>Hello there, {props.name}!</Text>
+    </View>
+  );
+}
+
+// Called a parent component as it renders another component
+const HelloThereSpam = () => {
+  return (
+    <View>
+      <HelloThere name={"Ryan"}/>
+      <HelloThere name={"Gerald"}/>
+      <HelloThere name={"Andrew"}/>
+    </View>
+  );
+}
+
+export default HelloThereSpam;
