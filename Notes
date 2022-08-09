@@ -1,0 +1,6 @@
+1. If cocoapods is already installed, skip, otherwise (sudo gem install cocoapods)
+2. Also do (sudo arch -x86_64 gem install ffi) either in same directory or the ios directory in step 6
+3. Do "npx react-native init YourProjectName" (cannot contain dashes)
+4. If cocapods dependencies fail, cd into ios folder, and run (arch -x86_64 pod install)
+5. Make sure the pwd is the root project then type (npx react-native start) -> this enables the watchman 
+6. In another terminal, type (npx react=native run-ios)
