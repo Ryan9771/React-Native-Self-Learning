@@ -58,6 +58,7 @@ const HelloThereSpam = () => {
   );
 }
 
+// -------------
 
 // Using hook and state to keep track of things. Here is a cat that can be hungry. If so, then click the button to make it 'full'
 const Cat = (props) => {
@@ -87,4 +88,6 @@ const Cats = () => {
   )
 }
 
-export default Cats;
+// export default Cats;
+
+// -------------

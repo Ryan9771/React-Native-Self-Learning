@@ -10,6 +10,9 @@ STYLES:
 
 ATTRIBUTES
 
+🌏 Global
+    - style
+
 Button
     - onPress = { .. } // What to do when pressed. Can even put anonymous functions inside
     - disabled = { .. } // Whether to disable a button. Can put a boolean expression inside
@@ -18,3 +21,8 @@ Button
 Image 
     - source = { require('thePath) } // Relative path to image
     - source = {{ uri : 'web link' }} // Web image
+
+TextInput
+    - placeholder = 'Text that appears before typing'
+    - onChangeText = { newText => function(newText) } // function that does something with the new text as the user types
+    - defaultValue = { .. } // The default value of the textfield (not label)
