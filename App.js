@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, {useState} from 'react';
+import { Text, TextInput, View, Image, Button } from 'react-native';
 
 // A function declared anonymously
 const getFirstName = (firstName) => {
@@ -35,7 +35,6 @@ const Hello = () => {
 // export default Hello;
 
 // But we can render a component multiple times as so: (make sure the first one is wrapped in a view!)
-
 const HelloThere = (props) => {
   return (
     <View>
@@ -51,8 +50,41 @@ const HelloThereSpam = () => {
       <HelloThere name={"Ryan"}/>
       <HelloThere name={"Gerald"}/>
       <HelloThere name={"Andrew"}/>
+      <Image 
+        source = {require('./Images/minecraft.jpg')}
+        style = {{height:200, width:200}}
+      />
     </View>
   );
 }
 
-export default HelloThereSpam;
+
+// Using hook and state to keep track of things. Here is a cat that can be hungry. If so, then click the button to make it 'full'
+const Cat = (props) => {
+  const [isHungry, setHungry] = useState(true);
+  return (
+    <View>
+      <Text>I am {props.name}. I am {isHungry ? 'hungry' : 'full'}</Text>
+      <Button
+        onPress = {() => {
+          setHungry(false);
+        }}
+        disabled = {!isHungry}
+        title = {isHungry ? "Click to feed" : "Yum"}
+      />
+    </View>
+  );
+}
+
+// Here are multiple cats
+const Cats = () => {
+  return (
+    // Note you can do this too instead of view. View doesn't work here for some reason 
+    <> 
+      <Cat name = "Ryan"/>
+      <Cat name = "Lisa"/>
+    </>
+  )
+}
+
+export default Cats;

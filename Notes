@@ -15,21 +15,41 @@ INITIALISING WITH EXPO (MUCH EASIER)
 -------
 
 TAGS
-    <View></View> -> Fundamental -> Allows flex etc.. Essentially a div
-    <Text></Text> -> Essentially a <p></p>
-    <TextInput></TextInput> -> Like input   
+    - <View></View> -> Fundamental -> Allows flex       etc.. Essentially a div
+    -  <Text></Text> -> Essentially a <p></p>
+    - <TextInput></TextInput> -> Like input   
         - "defaultValue =" attribute sets the label of the textbox
+    - <Image> -> Allows you to put an image
+        - To add an image from internet:
+            - <Image source = {{ uri : 'link' }}/>
+        - To add image from folder:
+            - <Image source = {require('path')}>
+    - <ScrollView></ScrollView> -> A scrollable 'div'
 
 
 PROPS
+    - It is used to configure a component when it renders
     - You can use 'props' or any other word to refer to as properties, and then access that property from the original function to do something. It is essentially literally just an argument in an anonymous function which assumes a particular property. Eg: 
         const smth = (prop) => {
             return <Text>{prop.name}</Text>
         }
     - This then looks at an attribute called 'name' in the parent component
     - Props essentially means attribute
+    - Props can be anything -> Eg: style, source etc.. 
 
 
+
+STATE
+    - They are like classes -> Used to keep track of component data that you expect to change over time
+    - Do 2 things: create the variable (can be anything), and the function to set that variable:
+        - const [isHungry, setHunger] = useState(true)
+        - ^ Sets a boolean constant 'isHungry' to 'true' and creates a function to set that value
+        - [<getter>, <setter>] = useState(<initialValue>)
+
+
+HOOK
+    - It is a kind of function that lets you 'hook into' React features.
+    - Eg: useState -> hook that lets you add state to function components
 -------
 
 Anonymous functions to create react element:
