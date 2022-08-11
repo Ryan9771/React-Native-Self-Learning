@@ -40,8 +40,8 @@ FlatList
 
 SectionList
     - sections={[ .. ]}
-        - title: 'D'
-        - data: [..]
+        - {title: 'D'
+        - data: [..]}
     - renderItem={ .. }
     - renderSectionHeader={ .. }
     - keyExtractor={ .. } -> Essentially just a key to give the item. You can make it anything you want (refer to the docs or App.js to see)
