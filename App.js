@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, TextInput, View, Image, Button } from 'react-native';
+import { Text, TextInput, View, Image, Button, ScrollView, FlatList, StyleSheet } from 'react-native';
 
 // A function declared anonymously
 const getFirstName = (firstName) => {
@@ -15,7 +15,7 @@ function getLastName(lastName) {
 const Hello = () => {
   const name = 'Ryan';
   return (
-    <View>
+    <SafeAreaView>
       <Text>
         Hello, I am {getFirstName("Ryan") + getLastName("Ryan")}
       </Text>
@@ -27,7 +27,7 @@ const Hello = () => {
         }}
         defaultValue="Im a text box"
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -85,9 +85,72 @@ const Cats = () => {
       <Cat name = "Ryan"/>
       <Cat name = "Lisa"/>
     </>
-  )
+  );
 }
 
 // export default Cats;
 
 // -------------
+
+// Converting Text input to pizzas
+const PizzaTranslator = () => {
+  const [text, setText] = useState('');
+  return (
+    <View style={{ padding: 10 }}>
+      <TextInput
+        style = {{height: 40}}
+        placeholder = "Type here to translate"
+        defaultValue = {text}
+        onChangeText = {newText => setText(newText)}
+      />
+      <Text style = {{padding: 10, fontSize: 42}}>
+        {text.split(' ').map((word) => word && '🍕').join(' ')}
+      </Text>
+    </View>
+  );
+}
+
+// export default PizzaTranslator;
+
+// --------------
+
+
+// Scroll Views
+const logo = {
+  uri: 'https://reactnative.dev/img/tiny_logo.png',
+  width: 64,
+  height: 64
+}
+
+const Scroll = () => {
+  return (
+    <ScrollView>
+      <Text style={{ fontSize: 96 }}>Scroll me!</Text>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Text style={{ fontSize: 96 }}>Keep scrolling</Text>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Text style={{ fontSize: 96 }}>Almost there</Text>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Image source={logo}/>
+      <Text style={{ fontSize: 96 }}>You've reached the end!</Text>
+    </ScrollView>
+  );
+};
+
+export default Scroll;

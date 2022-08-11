@@ -24,8 +24,20 @@ TAGS
             - <Image source = {{ uri : 'link' }}/>
         - To add image from folder:
             - <Image source = {require('path')}>
-    - <ScrollView></ScrollView> -> A scrollable 'div'
-
+    - <ScrollView></ScrollView>
+        - A scrollable 'div'
+        - Can contain multiple components and views
+        - Based on props, you can  
+            - Enable horizontal scrolling
+            - Enable zooming in and out by setting the maximumZoomScale and minimumZoomScale prop
+            - You can even allow users to swipe page wise
+            - Renders all data in, even those not in the screen, which is bad. 
+            - Doesn't have structure to it as well.
+            - If you have a long list of items which cannot fit on the screen, you should use a FlatList (since its more structured and renders in data only currently on the screen)
+    - <FlatList></FlatList>
+        - Good for long lists of data that could change
+        - More structured
+        - Renders in data on the screen
 
 PROPS
     - It is used to configure a component when it renders
@@ -65,6 +77,24 @@ To create a function to return a react element:
     export default something;
 
 
+------------
+
+METHODS
+
+Map
+    - someList.map((x) => 2 * x) 
+
+Split
+    - words.split(' ')
+
+Join
+    - list.join(' ')
+
+
+
+------------
+
+
 GENERAL
 
 You can also do variables:
@@ -76,4 +106,5 @@ You can also do variables:
 Reason for double braces:
     If its a double brace, then the inner brace is for javascript elements / objects like style's width and height. Otherwise it could be taken in like a prop
 
-
+Boolean Evaluator
+    Note that "" means false, so if you have a variable like str, you can do (str && "hi")
