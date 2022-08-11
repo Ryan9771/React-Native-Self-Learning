@@ -38,6 +38,8 @@ TAGS
         - Good for long lists of data that could change
         - More structured
         - Renders in data on the screen
+    - <SectionList/>
+        - Essentially a flat list but in sections
 
 PROPS
     - It is used to configure a component when it renders

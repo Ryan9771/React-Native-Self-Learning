@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, TextInput, View, Image, Button, ScrollView, FlatList, StyleSheet } from 'react-native';
+import { Text, TextInput, View, Image, Button, ScrollView, FlatList, StyleSheet, SectionList } from 'react-native';
 
 // A function declared anonymously
 const getFirstName = (firstName) => {
@@ -153,4 +153,95 @@ const Scroll = () => {
   );
 };
 
-export default Scroll;
+// export default Scroll;
+
+// ---------
+
+// A sample stylesheet
+const flatListStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 60,
+    paddingLeft: 20
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44
+  }
+});
+
+// Flat List Basics
+const FlatListBasics = () => {
+  return (
+    <View style={flatListStyles.container}>
+      <FlatList 
+        data={[
+          {key: 'Devin'},
+          {key: 'Dan'},
+          {key: 'Dominic'},
+          {key: 'Jackson'},
+          {key: 'James'},
+          {key: 'Joel'},
+          {key: 'John'},
+          {key: 'Jillian'},
+          {key: 'Jimmy'},
+          {key: 'Julie'}
+        ]}
+        renderItem={({item}) => <Text style={flatListStyles.item}>{item.key}</Text>}
+      />
+    </View>
+  );
+}
+
+// export default FlatListBasics;
+
+// Use of SectionList
+
+const DATA = [
+  {
+    title: 'D',
+    data: ['Devin', 'Dan', 'Dominic']
+  },
+  {
+    title: 'J',
+    data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']
+  }
+]
+
+
+const SectionStyles = StyleSheet.create({
+    container: {
+      flex: 1, 
+      paddingTop: 40,
+      marginTop: 40
+    },
+    sectionHeader: {
+      paddingTop: 2,
+      paddingLeft: 10, 
+      paddingBottom: 2,
+      fontSize: 14,
+      fontWeight: 'bold',
+      backgroundColor: '#faebd7'
+    },
+    item: {
+      fontSize: 18,
+      padding: 10,
+      height: 44
+    }
+  })
+
+const SectionListBasics = () => {
+    return (
+      <View style={SectionStyles.container}>
+        <SectionList
+          sections={DATA}
+          renderItem={({item}) => <Text style={SectionStyles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={SectionStyles.sectionHeader}>{section.title}</Text>}
+          keyExtractor={(item, index) => `basicListEntry-${item.title}`}
+        />
+      </View>
+    );
+  }
+
+export default SectionListBasics;

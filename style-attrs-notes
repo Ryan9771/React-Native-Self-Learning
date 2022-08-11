@@ -3,7 +3,12 @@ STYLES:
         - height: 40
         - width: 40
         - padding: 10
+        - paddingTop: 22
+        - paddingLeft: 20
         - fontSize: 42
+        - flex: 1
+        - margin: 10
+        - marginTop: 10
 
     Border
         - borderColor: 'gray'
@@ -28,3 +33,15 @@ TextInput
     - placeholder = 'Text that appears before typing'
     - onChangeText = { newText => function(newText) } // function that does something with the new text as the user types
     - defaultValue = { .. } // The default value of the textfield (not label
+
+FlatList
+    - data = { .. } -> source of information for the list 
+    - renderItem = { .. } -> takes one item from the source and returns a formatted component to render 
+
+SectionList
+    - sections={[ .. ]}
+        - title: 'D'
+        - data: [..]
+    - renderItem={ .. }
+    - renderSectionHeader={ .. }
+    - keyExtractor={ .. } -> Essentially just a key to give the item. You can make it anything you want (refer to the docs or App.js to see)
