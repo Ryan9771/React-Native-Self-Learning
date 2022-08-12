@@ -1,19 +1,44 @@
 STYLES:
     General
-        - height: 40
+        - height: 40 OR '40%'   
         - width: 40
         - padding: 10
         - paddingTop: 22
         - paddingLeft: 20
+        - paddingHorizontal: 8
+        - paddingVertical: 6
         - fontSize: 42
         - flex: 1
         - margin: 10
         - marginTop: 10
+        - backgroundColor: 'skyblue'
+        - direction: 'ltr' OR 'rtl'
+        - alignSelf: "flex-start"
+            - I assume this is for individual elements whereas justifyContent is for all boxes within itself
+        - alignItems: center
+            - Aligns items in the other axes (eg: vertical), whereas justify-content is more for the horizontal 
+        - minWidth: "48%"
+        - textAlign: "center"
+        - marginHorizontal: "1%"
+        - justifyContent: "flex-start" / "flex-end" / "center" / "space-between" / "space-around" / "space-evenly"
 
     Border
         - borderColor: 'gray'
         - borderWidth: 1
+        - borderRadius: 4
 
+
+    Flex -> Makes the component expand shrink dynamically
+        - flex: 1 -> fill all available space, shared evenly amongst other components with the same parent
+            - if you have 3 children with flex1 flex2 flex3, then the first child (flex: 1) will have 1/(1+2+3) of the space
+        - The larger the 'flex', the higher the ratio of space a component will take compared to its siblings
+        ! Note that the parent must have a dimension greater than 0 (width, height > 0 or flex) otherwise no space for children to fit into
+        - To make the parent have full size use 'flex: 1' (or height: '100%') so that it occupies the full length if there's only 1 sibling.
+
+        STYLES
+            - flex: 1
+            - flexDirection: "column" OR "row" OR "column-reverse" OR "row-reverse"
+            - flexWrap: "wrap"
 
 ATTRIBUTES
 
