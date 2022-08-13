@@ -1,57 +1,52 @@
 import React from 'react';
-import { SafeAreaView, Text, StyleSheet, View } from 'react-native';
+import { Text, Image, View, StyleSheet, ImageBackground } from 'react-native';
 
-
-const App = () => {
-
+const Background = () => {
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.red}></Text>
-            <Text style={styles.blue}></Text>
-            <Text style={styles.green}></Text>
-            <Text style={styles.orange}></Text>
-            <Text style={styles.purple}></Text>
-        </SafeAreaView>
+        <ImageBackground
+            source={require("./Images/background.jpg")}
+            style={styles.background}
+        >
+            <View style={styles.topBox}>
+                <Image source={require('./Images/logo-red.png')} style={styles.logo}/>
+                <Text>Sell what you don't need</Text>
+            </View>
+            <View style={styles.btmBox}>
+                <View style={styles.red}></View>
+                <View style={styles.aquamarine}></View>
+            </View>
+
+        </ImageBackground>
     );
-
-
 }
 
 const styles = StyleSheet.create({
-    container: {
+    background: {
         flex: 1,
-        flexWrap: "wrap",
-        flexDirection: "row",
-        justifyContent: "center",
-        //alignItems: "center"
-        alignContent: "center"
-        
+        justifyContent: 'space-between'
     },
     red: {
-        width: 100,
-        height: 100,
-        backgroundColor: 'red'
+        width: '100%',
+        flex: 1,
+        backgroundColor: 'coral'
     },
-    blue: {
-        width: 100,
-        height: 100,
-        backgroundColor: 'blue'
+    aquamarine: {
+        backgroundColor: 'aquamarine',
+        width: '100%',
+        flex: 1
     },
-    green: {
-        width: 100,
-        height: 100,
-        backgroundColor: 'green'
+    logo: {
+        width: 80,
+        height: 80
     },
-    orange: {
-        width: 100,
-        height: 100,
-        backgroundColor: 'orange'
+    btmBox: {
+        height: '15%'
     },
-    purple: {
-        width: 100,
-        height: 100,
-        backgroundColor: 'purple'
+    topBox: {
+        marginTop: 60,
+        justifyContent: "center",
+        alignItems: "center"
     }
 })
 
-export default App;
+export default Background;

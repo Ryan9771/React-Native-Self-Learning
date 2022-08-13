@@ -30,10 +30,12 @@ STYLES:
 
     Flex -> Makes the component expand shrink dynamically
         - flex: 1 -> fill all available space, shared evenly amongst other components with the same parent
+            - Therefore, 'flex: 1' can even replace "width: '100%', height: '100%'"
             - if you have 3 children with flex1 flex2 flex3, then the first child (flex: 1) will have 1/(1+2+3) of the space
         - The larger the 'flex', the higher the ratio of space a component will take compared to its siblings
         ! Note that the parent must have a dimension greater than 0 (width, height > 0 or flex) otherwise no space for children to fit into
         - To make the parent have full size use 'flex: 1' (or height: '100%') so that it occupies the full length if there's only 1 sibling.
+        - Note: It doesn't seem like you have to put flex on the outer box even if your children have flex. Flex is just saying to fill the entire container. So if the parent has a custom size, then you can't really put flex: 1
 
         STYLES
             - flex: 1
@@ -51,7 +53,7 @@ Button
     - title = { .. } // The label of the button 
 
 Image 
-    - source = { require('thePath) } // Relative path to image
+    - source = { require('thePath') } // Relative path to image
     - source = {{ uri : 'web link' }} // Web image
 
 TextInput
