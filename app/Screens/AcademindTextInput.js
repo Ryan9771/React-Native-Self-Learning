@@ -6,10 +6,11 @@ const Goals = () => {
     const [enteredText, setEnteredText] = useState('')
     const [goalItems, setGoalItems] = useState([])
 
-    function headerText() {
-        if (goalItems.length === 0) {
-            return <Text style={styles.goalHeader}>Add a goal!</Text>
+    function GoalItem(props) {
+        if (props.goalItem === "") {
+            return null;
         }
+        return (<Text style={styles.goals} key={props.goalItem}>{props.goalItem}</Text>);
     }
 
     function inputHandler(text) {
@@ -36,7 +37,7 @@ const Goals = () => {
             </View>
             <View style={styles.btmCnt}>
                 <Text style={styles.goalHeader}>{goalItems.length === 0 ? "Add a goal!" : "Your Goals:"}</Text>
-                {goalItems.map((goal) => <Text style={styles.goals} key={goal}>{goal}</Text>)}
+                {goalItems.map((goal) => <GoalItem goalItem={goal}/>)}
             </View>
         </View>
     );
