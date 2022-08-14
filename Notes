@@ -64,6 +64,20 @@ STATE
 HOOK
     - It is a kind of function that lets you 'hook into' React features.
     - Eg: useState -> hook that lets you add state to function components
+
+DIFFERENT SCREENS
+    - Add a folder called app, and shift the "assets" folder inside
+    - Also inside the "app" folder, create a folder called 'screens'
+    - In 'app.json', make sure to redirect any paths which go into './assets' to './app/assets'
+    - Remember in each screen.js file, to 'export default name'
+    - In your 'app.js' file in the root directory, you can 'import file from 'path/of/file'.
+        - Note, you don't need to do 'path/of/file.js'
+
+
+ADDING FILE FOR COMMON USED STUFF
+    - You can create a 'config' folder in the 'app' folder and call it, eg, 'colors.js'
+    - Then, inside, 'export default {name : color}' to set your keywords for whatever you want
+    - Then from the file you want to use it from, you can do 'import colors from 'path/of/file'
 -------
 
 Anonymous functions to create react element:
@@ -110,3 +124,9 @@ Reason for double braces:
 
 Boolean Evaluator
     Note that "" means false, so if you have a variable like str, you can do (str && "hi")
+
+Taking up the entire screen
+    Note that if you do eg: a view component, it doesn't automatically take up the entire scre4en eg: if you want a background color. You have to do either width and height to 100 or just do flex: 1
+
+Optional Components
+    If you want a component, eg, a heading that says something if something is true, and not to have the component when it is false, then you can create a component: "const component = () => { .. }" and return whatever you want, eg: a <Text> if your var is true, otherwise "return null;" if its not true, then the component will be out of the way
