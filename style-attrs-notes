@@ -1,4 +1,12 @@
 STYLES:
+
+    !! Note: Sometimes if stuff like eg: borderRadius doesn't apply for ios or android, then you can wrap 
+        it inside a <View> component and apply the styles there
+
+    !! It is important to note that unlike CSS, children don't inherit styles from parents. So eg: if you 
+        have a View that has a color:white, then in your text component, you still need to have 
+        your color set to white, otherwise itll just give black text
+
     General
         - height: 40 OR '40%'   
         - width: 40
@@ -26,6 +34,7 @@ STYLES:
         - borderColor: 'gray'
         - borderWidth: 1
         - borderRadius: 4
+            -> ! Note this may not apply do stuff like <Text> for ios. In that case, you'd need to wrap it in a View and apply the styling there
 
 
     Flex -> Makes the component expand shrink dynamically
@@ -41,6 +50,8 @@ STYLES:
             - flex: 1
             - flexDirection: "column" OR "row" OR "column-reverse" OR "row-reverse"
             - flexWrap: "wrap"
+
+    
 
 ATTRIBUTES
 
@@ -64,6 +75,9 @@ TextInput
 FlatList
     - data = { .. } -> source of information for the list 
     - renderItem = { .. } -> takes one item from the source and returns a formatted component to render 
+        ! Note that the anonymous function returns an object. So to get the individual item in the list, you must use the 'itemData.item' attribute 
+    - keyExtractor = { .. }
+        ! Note that the anonymous function for this directly returns the item instead of the object so you can refer to it directly
 
 SectionList
     - sections={[ .. ]}

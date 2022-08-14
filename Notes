@@ -25,6 +25,7 @@ TAGS
         - To add image from folder:
             - <Image source = {require('path')}>
     - <ScrollView></ScrollView>
+        - You should wrap your scrollviews inside a normal view, because the scroll view will get its size from its parent. Hence, if you have a view that already has a fixed size, then scroll view will take up that space, otherwise the dimensions can get messed up.
         - A scrollable 'div'
         - Can contain multiple components and views
         - Based on props, you can  
@@ -33,7 +34,7 @@ TAGS
             - You can even allow users to swipe page wise
             - Renders all data in, even those not in the screen, which is bad. 
             - Doesn't have structure to it as well.
-            - If you have a long list of items which cannot fit on the screen, you should use a FlatList (since its more structured and renders in data only currently on the screen)
+            !! If you have a long list of items which cannot fit on the screen, you should use a FlatList (since its more structured and renders in data only currently on the screen)
     - <FlatList></FlatList>
         - Good for long lists of data that could change
         - More structured
@@ -78,6 +79,10 @@ ADDING FILE FOR COMMON USED STUFF
     - You can create a 'config' folder in the 'app' folder and call it, eg, 'colors.js'
     - Then, inside, 'export default {name : color}' to set your keywords for whatever you want
     - Then from the file you want to use it from, you can do 'import colors from 'path/of/file'
+    - You can even do this for functions, so 'export default functionName' and then import it in from another file
+        - Then 'import functionName from "./path"
+        - Then in your actual app, just do an anonymous function and do `return <functionName />`
+        - To pass in data to that function, use props as an argument then add that prop to the func name. Eg: `return <functionName text="smth" />`
 -------
 
 Anonymous functions to create react element:

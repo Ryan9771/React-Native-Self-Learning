@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View, Button, StyleSheet, Text } from 'react-native';
+import { TextInput, View, Button, StyleSheet, Text, FlatList, ScrollView } from 'react-native';
 
 const Goals = () => {
 
@@ -10,7 +10,7 @@ const Goals = () => {
         if (props.goalItem === "") {
             return null;
         }
-        return (<Text style={styles.goals} key={props.goalItem}>{props.goalItem}</Text>);
+        return (<Text style={styles.goals}>{props.goalItem}</Text>);
     }
 
     function inputHandler(text) {
@@ -18,7 +18,9 @@ const Goals = () => {
     }
 
     function btnHandler() {
-        setGoalItems((goals) => [...goalItems, enteredText]);
+        if (enteredText !== "") {
+            setGoalItems((goals) => [...goalItems, enteredText]);
+        }
     }
 
     return (
@@ -36,8 +38,14 @@ const Goals = () => {
                 />
             </View>
             <View style={styles.btmCnt}>
-                <Text style={styles.goalHeader}>{goalItems.length === 0 ? "Add a goal!" : "Your Goals:"}</Text>
-                {goalItems.map((goal) => <GoalItem goalItem={goal}/>)}
+                <Text style={styles.goalHeader}>{goalItems.length === 0 ? "Add a goal!" : "Your Goals:"}</Text> 
+                <View>
+                    <FlatList    
+                        data={goalItems}
+                        renderItem={itemData => <GoalItem goalItem={itemData.item}/>}
+                        keyExtractor={(item, index) => item + Math.random()}
+                    /> 
+                </View>
             </View>
         </View>
     );
@@ -66,7 +74,7 @@ const styles = StyleSheet.create({
         borderTopColor: "gainsboro",
         borderTopWidth: 2, 
         marginHorizontal: 10,
-        padding: 20
+        padding: 20, 
     }, 
     goalHeader: {
         color: "green",
