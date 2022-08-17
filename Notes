@@ -118,6 +118,11 @@ Join
 
 GENERAL / MISTAKES
 
+Function vs const 
+    - Both are components and can be generated with the <Function />
+    - use const if its just something to render without any special things
+    - function is useful to pass args in, including props!
+
 You can also do variables:
     const something = () => {
         const name = "Ryan";

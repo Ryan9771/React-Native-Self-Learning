@@ -7,7 +7,7 @@ import { Text,
     Button, 
     TouchableOpacity} from 'react-native';
 
-import Todo_Input from './Todos';
+import Todo_Input from './InputScreen';
 
     
 // The item to render: A button for each item so can delete with long press 
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
         flex: 4
     }, 
     container: {
-        flex: 3,
+        flex: 1,
         backgroundColor: "antiquewhite",
         paddingTop: 70,
         padding: 20
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     topCnt: {
         flex: 1, 
         paddingLeft: 5,
-        justifyContent: "center"
+        marginTop: 20
     },
     
 })
