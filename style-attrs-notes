@@ -33,6 +33,8 @@ STYLES:
     Border
         - borderColor: 'gray'
         - borderWidth: 1
+        - borderTopColor: 'green'
+        - borderTopWidth: 5
         - borderRadius: 4
             -> ! Note this may not apply do stuff like <Text> for ios. In that case, you'd need to wrap it in a View and apply the styling there
 

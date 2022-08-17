@@ -116,7 +116,7 @@ Join
 ------------
 
 
-GENERAL
+GENERAL / MISTAKES
 
 You can also do variables:
     const something = () => {
@@ -135,3 +135,13 @@ Taking up the entire screen
 
 Optional Components
     If you want a component, eg, a heading that says something if something is true, and not to have the component when it is false, then you can create a component: "const component = () => { .. }" and return whatever you want, eg: a <Text> if your var is true, otherwise "return null;" if its not true, then the component will be out of the way
+
+Flat List not re-rendering
+    - You will notice that the flatlist does not rerender if you do code with such syntax (eg: in Flatlist.js)
+        function addToList() {
+            cpy_todos = todos;
+            cpy_todos.push(entered_text);
+            setTodos(cpy_todos);
+        }
+    - This is because the list re renders when the actual state is updated.
+    - Use setTodos([...todos, entered_text]) to set the 'todos' to the old todos + the new entered text
