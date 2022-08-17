@@ -8,7 +8,7 @@ import { Text,
     TouchableOpacity} from 'react-native';
 
     
-
+// The item to render: A button for each item so can delete with long press 
 function ViewItem(props) {
     return (
         <TouchableOpacity

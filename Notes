@@ -143,5 +143,16 @@ Flat List not re-rendering
             cpy_todos.push(entered_text);
             setTodos(cpy_todos);
         }
+    !! This is because doing 'cpy_todos = todos;' is NOT copying the list, its just doing a new pointer. 
+    !! To copy the list, you can do 'cpy_todos = [...todos]
+        - Similarly to delete smth in the list, you can do setTodos([...todos].filter(smth => ...))
     - This is because the list re renders when the actual state is updated.
     - Use setTodos([...todos, entered_text]) to set the 'todos' to the old todos + the new entered text
+
+Changing state outside component 
+    - By right, you cannot change state outside the component, but in javascript,
+        you can pass functions as an input!
+    - So you can make an extra prop that takes in this function alone (the function has to be within the component)
+    - Remember to take in the function alone without '()' otherwise, that will call the function 
+    - If the function needs an argument, then outside the component where you make the component to render, you can add a '.bind(this, props.variable)'
+    - This will pass the value of the variable when pressed to that function.
