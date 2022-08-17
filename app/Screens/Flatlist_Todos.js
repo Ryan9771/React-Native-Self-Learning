@@ -1,19 +1,39 @@
 import React, { useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TextInput, Button } from 'react-native';
+import { Text, 
+    View, 
+    StyleSheet, 
+    FlatList, 
+    TextInput, 
+    Button, 
+    TouchableOpacity} from 'react-native';
 
+    
 
-// Function to change the text
+function ViewItem(props) {
+    return (
+        <TouchableOpacity
+            onPress={props.onDelete.bind(this, props.label)}
+        >
+            <Text style={styles.item}>{props.label}</Text>
+        </TouchableOpacity>
+    );
 
+}
 
 const MyList = () => {
 
-    const [inp_text, setInpText] = useState('')
-    const [todos, setTodos] = useState([])
+    const [inp_text, setInpText] = useState('');
+    const [todos, setTodos] = useState([]);
 
     function addTodo() {
         if (inp_text.trim()) {
-            setTodos([...todos, inp_text])
+            setTodos([...todos, inp_text]);
         }
+        setInpText('');
+    }
+
+    function deleteItem(label) {
+        setTodos(todos.filter((item) => item !== label));
     }
 
     return (
@@ -23,7 +43,7 @@ const MyList = () => {
                     <TextInput 
                         style={styles.input}
                         placeholder="Enter your todo here!"
-                        defaultValue=''
+                        value={inp_text}
                         onChangeText={setInpText}
                     />
                     <Button
@@ -36,7 +56,7 @@ const MyList = () => {
             <View style={styles.btmCnt}>
                 <FlatList
                     data={todos}
-                    renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+                    renderItem={({item}) => <ViewItem label={item} onDelete={deleteItem}/>}
                 />
             </View>
         </View>

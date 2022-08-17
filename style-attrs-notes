@@ -72,7 +72,8 @@ Image
 TextInput
     - placeholder = 'Text that appears before typing'
     - onChangeText = { newText => function(newText) } // function that does something with the new text as the user types
-    - defaultValue = { .. } // The default value of the textfield (not label
+    - defaultValue = { .. } // The default value of the textfield (not label)
+    - value = { .. } // The actual value of the text field. Useful if you want to clear text of an input field after clicking enter or smth
 
 FlatList
     - data = { .. } -> source of information for the list 
