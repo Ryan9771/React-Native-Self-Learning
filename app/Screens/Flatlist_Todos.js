@@ -12,7 +12,7 @@ import { Text,
 function ViewItem(props) {
     return (
         <TouchableOpacity
-            onPress={props.onDelete.bind(this, props.label)}
+            onLongPress={props.onDelete.bind(this, props.label)}
         >
             <Text style={styles.item}>{props.label}</Text>
         </TouchableOpacity>
