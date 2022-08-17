@@ -7,6 +7,8 @@ import { Text,
     Button, 
     TouchableOpacity} from 'react-native';
 
+import Todo_Input from './Todos';
+
     
 // The item to render: A button for each item so can delete with long press 
 function ViewItem(props) {
@@ -22,14 +24,10 @@ function ViewItem(props) {
 
 const MyList = () => {
 
-    const [inp_text, setInpText] = useState('');
     const [todos, setTodos] = useState([]);
 
-    function addTodo() {
-        if (inp_text.trim()) {
-            setTodos([...todos, inp_text]);
-        }
-        setInpText('');
+    function addTodo(inp_text) {
+        setTodos([...todos, inp_text]);
     }
 
     function deleteItem(label) {
@@ -39,19 +37,7 @@ const MyList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.topCnt}>
-                <View style={styles.topWrapper}>
-                    <TextInput 
-                        style={styles.input}
-                        placeholder="Enter your todo here!"
-                        value={inp_text}
-                        onChangeText={setInpText}
-                    />
-                    <Button
-                        title="Add Todo"
-                        style={styles.btn}
-                        onPress={addTodo}
-                    />
-                </View>
+                <Todo_Input todoHandler={addTodo}/>
             </View>
             <View style={styles.btmCnt}>
                 <FlatList
@@ -66,11 +52,8 @@ const MyList = () => {
 
 const styles = StyleSheet.create({
     btmCnt: {
-        flex: 2
+        flex: 4
     }, 
-    btn: {
-        flex: 1
-    },
     container: {
         flex: 3,
         backgroundColor: "antiquewhite",
@@ -82,18 +65,10 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: 'bold'
     },
-    input: {
-        flex: 2,
-        fontWeight: '600',
-        fontSize: 16
-    },
     topCnt: {
         flex: 1, 
         paddingLeft: 5,
         justifyContent: "center"
-    },
-    topWrapper: {
-        flexDirection: "row",
     },
     
 })

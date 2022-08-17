@@ -79,6 +79,7 @@ FlatList
     - data = { .. } -> source of information for the list 
     - renderItem = { .. } -> takes one item from the source and returns a formatted component to render 
         ! Note that the anonymous function returns an object. So to get the individual item in the list, you must use the 'itemData.item' attribute 
+        ! You can also use object destructuring by doing {({item}) => ..} instead of {(item) => item.item}
     - keyExtractor = { .. }
         ! Note that the anonymous function for this directly returns the item instead of the object so you can refer to it directly
 
