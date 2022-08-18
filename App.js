@@ -1,11 +1,10 @@
 import React from 'react';
-// import TutExercises from "./app/Screens/TutExercises"
-// import TutChair from "./app/Screens/TutChair"
-// import BasicTextInput from "./app/Screens/BasicTextInput"
-import Flatlist_Todos from "./app/Screens/Modal_Flatlist/FlatlistMain"
+
+import BasicAnimate from './app/Screens/Animation_Notes/BasicAnimate';
+
 
 const App = () => {
-    return(<Flatlist_Todos />);
+    return(<BasicAnimate />);
 }
 
 export default App;
