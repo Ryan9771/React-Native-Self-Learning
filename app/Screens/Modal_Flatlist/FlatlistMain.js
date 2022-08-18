@@ -24,7 +24,16 @@ function ViewItem(props) {
 
 const MyList = () => {
 
-    const [todos, setTodos] = useState([]);
+    const [todos, setTodos] = useState([]); // Todos list
+    const [modal_visible, setModalVisible] = useState(false);
+
+    function setModalTrue() {
+        setModalVisible(true);
+    }
+
+    function setModalFalse() {
+        setModalVisible(false);
+    }
 
     function addTodo(inp_text) {
         setTodos([...todos, inp_text]);
@@ -37,7 +46,17 @@ const MyList = () => {
     return (
         <View style={styles.container}>
             <View style={styles.topCnt}>
-                <Todo_Input todoHandler={addTodo}/>
+                <Button 
+                    style={styles.btn}
+                    title="Add new Item"
+                    color="#5e0acc"
+                    onPress={setModalTrue}
+                />
+                <Todo_Input 
+                    modalVisible={modal_visible} 
+                    todoHandler={addTodo}
+                    setHidden={setModalFalse}
+                />
             </View>
             <View style={styles.btmCnt}>
                 <FlatList
@@ -52,7 +71,8 @@ const MyList = () => {
 
 const styles = StyleSheet.create({
     btmCnt: {
-        flex: 4
+        flex: 4,
+        alignItems: "center"
     }, 
     container: {
         flex: 1,
@@ -63,12 +83,13 @@ const styles = StyleSheet.create({
     item: {
         paddingVertical: 10,
         fontSize: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: "center"
     },
     topCnt: {
         flex: 1, 
         paddingLeft: 5,
-        marginTop: 20
+        marginTop: 40
     },
     
 })

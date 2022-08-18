@@ -30,6 +30,7 @@ STYLES:
         - marginHorizontal: "1%"
         - justifyContent: "flex-start" / "flex-end" / "center" / "space-between" / "space-around" / "space-evenly"
             ! Note: You can do this if the children don't have fixed size properties such as flex otherwise it'll just occupy the space
+            !! Also remember to use this, you must have a flex: 1 otherwise the size will be undefined, and hence, no changes
 
     Border
         - borderColor: 'gray'

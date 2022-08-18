@@ -17,36 +17,43 @@ function Todo_Input(props) {
             props.todoHandler(inp_text);
         }
         setInpText('');
+        props.setHidden();
+    }
+
+    function hide() {
+        props.setHidden();
     }
 
     return (
-        <View style={styles.topWrapper}>
-            <View>
-                <TextInput 
-                    style={styles.input}
-                    placeholder="Enter your todo here!"
-                    value={inp_text}
-                    onChangeText={setInpText}
-                />
-            </View>
-
-            <View style={styles.btn_container}>
+        <Modal visible={props.modalVisible} animationType="slide">
+            <View style={styles.topWrapper}>
                 <View>
-                    <Button
-                        title="Add Todo"
-                        onPress={todoAdder}
-                        color="forestgreen"
+                    <TextInput 
+                        style={styles.input}
+                        placeholder="Enter your todo here!"
+                        value={inp_text}
+                        onChangeText={setInpText}
                     />
                 </View>
-                <View style={styles.btn}>
-                    <Button
-                        title="Cancel"
-                        color="firebrick"
-                    />
+                <View style={styles.btn_container}>
+                    <View>
+                        <Button
+                            title="Add Todo"
+                            onPress={todoAdder}
+                            color="forestgreen"
+                        />
+                    </View>
+                    <View style={styles.btn}>
+                        <Button
+                            title="Cancel"
+                            color="firebrick"
+                            onPress={hide}
+                        />
+                    </View>
                 </View>
+                
             </View>
-            
-        </View>
+        </Modal>
     );
 }
 
@@ -67,7 +74,10 @@ const styles = StyleSheet.create({
     },
     topWrapper: {
         alignItems: "center",
-        marginTop: 20
+        justifyContent: "center",
+        paddingBottom: 100,
+        flex: 1,
+        backgroundColor: "antiquewhite"
     },
 })
 
