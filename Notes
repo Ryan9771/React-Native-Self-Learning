@@ -123,6 +123,13 @@ Function vs const
     - use const if its just something to render without any special things
     - function is useful to pass args in, including props!
 
+! You should always put functions to render components OUTSIDE the  
+    component that you are rendering in.
+
+! You should put functions that change state within the component. If needed to 
+    access functions and states outside the component, you can pass it in through 
+    props and update or call functions there with required arguments.
+
 You can also do variables:
     const something = () => {
         const name = "Ryan";
