@@ -1,10 +1,10 @@
 import React from 'react';
 
-import BasicAnimate from './app/Screens/Animation_Notes/BasicAnimate';
+import Task from './app/Screens/TodoList/Task';
 
 
 const App = () => {
-    return(<BasicAnimate />);
+    return(<Task />);
 }
 
 export default App;
