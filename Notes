@@ -120,6 +120,15 @@ Trim
 
 ANIMATIONS
 
+    - We need to use the Animated API, so import Animated from react-native
+    - To keep track of the value that changes during an animation, we use "const move = useRef(new Animated.Value(0)).current;"
+    - We then use a useEffect, as shown in the Animation_Notes directory.
+    - Things like Animation.timing allows us to set what to move the value to, and how long, and whether there is a delay
+    - Things like Animation.parallel([..]) allow us to set multiple animations.
+    - Things like Animation.stagger(timeInInts, [ .. ]) allow us to list multiple animations but with a gap of timeInInts ms between them
+    - Interpolating is very useful, and uses the 'move' variable to interpolate animation stuff like "rotate" or "opacity" based on 
+        inputRange (the value of the move), and the outputRange (the value you want to set the animation to). Check out Interpolation.js for egs.
+
 
 
 

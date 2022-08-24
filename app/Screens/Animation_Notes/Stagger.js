@@ -6,7 +6,7 @@ const Stagger = () => {
     const secondOpacity = useRef(new Animated.Value(0)).current;
     const thirdOpacity = useRef(new Animated.Value(0)).current;
 
-
+    // The stagger allows a time which is the gap between each animation.
     useEffect(() => {
         Animated.stagger(300, [
             Animated.timing(firstOpacity, {
