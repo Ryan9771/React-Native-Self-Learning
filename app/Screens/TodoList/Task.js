@@ -16,12 +16,33 @@ const Task = () => {
 
     const [inp_text, setText] = useState("");
     const [todos, setTodos] = useState([]);
+    const [num_todos, setNumTodos] = useState(0);
+    const [rerender, setRerender] = useState(false);
     
+    // Adds input text to 'todos' if not blank
     function sendText() {
         if (inp_text.trim()) {
-            setTodos([...todos, inp_text]);
+            setTodos([...todos, {id: num_todos, title: inp_text}]);
+            setNumTodos(num_todos + 1);
+            
         }
         setText("");
+    }
+
+    // Modifies the todo
+    function modifyTask(id, newTask) {
+        const newTodos = todos.map((item) => {
+            if (item.id == id) {
+                item.title = newTask; 
+                return item;
+            }
+            return item;
+        })
+        setTodos(newTodos);
+    }
+
+    function toggleRender() {
+        setRerender(!rerender);
     }
     
     return (
@@ -31,8 +52,16 @@ const Task = () => {
                 <View style={styles.fltList}>
                     <FlatList
                         data={todos}
-                        //renderItem={({item}) => <ListItem word={item} />}
-                        
+                        renderItem={({item}) => 
+                            <ListItem 
+                                id={item.id} 
+                                task={item.title} 
+                                changeTask={modifyTask}
+                                render={toggleRender}
+                            />
+                        }
+                        keyExtractor={(item) => item.id}
+                        extraData={rerender}
                     />
                 </View>
             </View>
@@ -83,7 +112,11 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "600",
         fontSize: 16,
-        backgroundColor: "white"
+        backgroundColor: "white",
+        shadowColor: "gray",
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 1,
+        paddingHorizontal: 8
         
     },
     btn: {
@@ -92,11 +125,14 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         marginLeft: 20,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        shadowColor: "gray",
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 1
     },
     fltList: {
-        backgroundColor: "green",
-        flex: 1,
+        width: '100%',
+        height: '78%',
         marginTop: 30
     }
 })
