@@ -111,6 +111,16 @@ Split
 Join
     - list.join(' ')
 
+Trim
+    - str.trim()
+
+
+
+------------
+
+ANIMATIONS
+
+
 
 
 ------------
@@ -178,3 +188,7 @@ Re-rendering in FlatList even though you changed your todos:
 
 Changing a todo in an already made todo data set:
     - If you have the id, you can just map through it, and make an anonymous function that checks whether the item matches the id, and if so, edit that, and return inside the map
+
+Multiple Styles
+    - You may have multiple styles depending on some conditions. You may use a ternary operator, or even the "pressed" 
+        attribute in the "Pressed" component, as displayed in "TodoList" screen
