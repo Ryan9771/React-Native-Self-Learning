@@ -14,12 +14,12 @@ import ListItem from './ListItem';
 
 const Task = () => {
 
-    const [inp_text, setText] = useState("");
-    const [todos, setTodos] = useState([]);
-    const [num_todos, setNumTodos] = useState(0);
-    const [rerender, setRerender] = useState(false);
+    const [inp_text, setText] = useState(""); // The input text from TextInput
+    const [todos, setTodos] = useState([]); // The list of todos
+    const [num_todos, setNumTodos] = useState(0); // Keeps track of the id for tasks
+    const [rerender, setRerender] = useState(false); // State for re-rendering
     
-    // Adds input text to 'todos' if not blank
+    // Adds input text to 'todos' if not blank, and supplies a unique id
     function sendText() {
         if (inp_text.trim()) {
             setTodos([...todos, {id: num_todos, title: inp_text}]);
@@ -41,8 +41,14 @@ const Task = () => {
         setTodos(newTodos);
     }
 
+    // Flips the state of the rerender variable for the flatlist to re-render
     function toggleRender() {
         setRerender(!rerender);
+    }
+
+    // Deletes a task from 'todo' with the given id number
+    function deleteTask(id_num) {
+        setTodos(todos.filter(({id}) => id !== id_num));
     }
     
     return (
@@ -58,6 +64,7 @@ const Task = () => {
                                 task={item.title} 
                                 changeTask={modifyTask}
                                 render={toggleRender}
+                                deleteHandler={deleteTask}
                             />
                         }
                         keyExtractor={(item) => item.id}
@@ -82,7 +89,7 @@ const Task = () => {
 
 const styles = StyleSheet.create({
     screen: {
-        backgroundColor: "gainsboro",
+        backgroundColor: "oldlace",
         paddingTop: 80,
         paddingHorizontal: 30,
         flex: 1,
@@ -91,7 +98,6 @@ const styles = StyleSheet.create({
     topCnt: {
         flex: 1
     },
-
     taskHeader: {
         fontWeight: "bold",
         fontSize: 22,
@@ -115,7 +121,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         shadowColor: "gray",
         shadowOffset: {width: 0, height: 2},
-        shadowOpacity: 1,
+        shadowOpacity: 0.8,
         paddingHorizontal: 8
         
     },

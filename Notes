@@ -171,3 +171,10 @@ Changing state outside component
 
 Object destructuring
     - You can do stuff like ({item}) => .. to get the object.item directly
+
+Re-rendering in FlatList even though you changed your todos:
+    - If extraData prop on your todos doesn't work, then you can just create a render variable and just pass it down through components, changing it by !(render). Then 
+        in your flatList, just extraData={render}
+
+Changing a todo in an already made todo data set:
+    - If you have the id, you can just map through it, and make an anonymous function that checks whether the item matches the id, and if so, edit that, and return inside the map

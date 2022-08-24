@@ -27,6 +27,7 @@ function ListItem(props) {
                 onPressIn={handlePress}
                 onPressOut={handlePress}
                 onPress={onPressHandler}
+                onLongPress={() => props.deleteHandler(props.id)}
             >
                 <Text style={pressedIn ? styles.pressedText : styles.text}>{props.task}</Text>
             </Pressable>
