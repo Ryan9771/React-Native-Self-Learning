@@ -126,8 +126,17 @@ ANIMATIONS
     - Things like Animation.timing allows us to set what to move the value to, and how long, and whether there is a delay
     - Things like Animation.parallel([..]) allow us to set multiple animations.
     - Things like Animation.stagger(timeInInts, [ .. ]) allow us to list multiple animations but with a gap of timeInInts ms between them
-    - Interpolating is very useful, and uses the 'move' variable to interpolate animation stuff like "rotate" or "opacity" based on 
-        inputRange (the value of the move), and the outputRange (the value you want to set the animation to). Check out Interpolation.js for egs.
+    - Interpolating is very useful, and uses the 'move' variable to interpolate animation stuff like "rotate" or 
+        "opacity" based on inputRange (the value of the move), and the outputRange (the value you want to set the animation to). Check out Interpolation.js for egs.
+    - Remember that the move_x inside the transform: [{transformX: move_x}] is nothing but an animated variable. So 
+        you don't need to use 'useEffect(..,[])' if there's something else moving that animated value. Eg: if you have
+        an onScroll prop that uses Animated.event() to map native event to the animated value. Check out "HeaderSliderDown.js"
+    - Animated.Value is not only set by the useEffect, and etc.. it can also be set using .setValue, for example in the 
+        case you want to move something around and note its coords
+
+
+GESTURES
+    - https://reactnative.dev/docs/gesture-responder-system
 
 
 
