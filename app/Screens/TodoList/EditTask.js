@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, StyleSheet, TextInput, Button} from 'react-native';
 
-function sendTask() {
-    
-
-}
-
 const EditTask = (props) => {
 
     const [input, setInput] = useState(props.task);
